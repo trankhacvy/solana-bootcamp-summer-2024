@@ -67,7 +67,7 @@ export function saveKeypairToFile(
 }
 
 
-export const connection = new Connection(CLUSTER_URL, "single");
+export const connection = new Connection(CLUSTER_URL, "confirmed");
 
 
 export function explorerURL({
@@ -93,4 +93,111 @@ export function printConsoleSeparator(message?: string) {
   console.log("\n===============================================");
   console.log("===============================================\n");
   if (message) console.log(message);
+}
+
+export async function buildTransaction({
+  connection,
+  payer,
+  signers,
+  instructions,
+}: {
+  connection: Connection;
+  payer: PublicKey;
+  signers: Keypair[];
+  instructions: TransactionInstruction[];
+}): Promise<VersionedTransaction> {
+  let blockhash = await connection.getLatestBlockhash().then(res => res.blockhash);
+
+  const messageV0 = new TransactionMessage({
+    payerKey: payer,
+    recentBlockhash: blockhash,
+    instructions,
+  }).compileToV0Message();
+
+  const tx = new VersionedTransaction(messageV0);
+
+  signers.forEach(s => tx.sign([s]));
+
+  return tx;
+}
+
+const DEFAULT_PUBLIC_KEY_FILE = "keys.json";
+
+export function loadPublicKeysFromFile(
+  absPath: string = `${DEFAULT_KEY_DIR_NAME}/${DEFAULT_PUBLIC_KEY_FILE}`,
+) {
+  try {
+    if (!absPath) throw Error("No path provided");
+    if (!fs.existsSync(absPath)) throw Error("File does not exist.");
+
+    const data = JSON.parse(fs.readFileSync(absPath, { encoding: "utf-8" })) || {};
+    for (const [key, value] of Object.entries(data)) {
+      data[key] = new PublicKey(value as string) ?? "";
+    }
+
+    return data;
+  } catch (err) {
+    console.warn("Unable to load local file");
+  }
+  return {};
+}
+
+
+export function savePublicKeyToFile(
+  name: string,
+  publicKey: PublicKey,
+  absPath: string = `${DEFAULT_KEY_DIR_NAME}/${DEFAULT_PUBLIC_KEY_FILE}`,
+) {
+  try {
+    let data: any = loadPublicKeysFromFile(absPath);
+    for (const [key, value] of Object.entries(data)) {
+      data[key as any] = (value as PublicKey).toBase58();
+    }
+    data = { ...data, [name]: publicKey.toBase58() };
+    fs.writeFileSync(absPath, JSON.stringify(data), {
+      encoding: "utf-8",
+    });
+    data = loadPublicKeysFromFile(absPath);
+
+    return data;
+  } catch (err) {
+    console.warn("Unable to save to file");
+  }
+  return {};
+}
+
+/*
+  Helper function to extract a transaction signature from a failed transaction's error message
+*/
+export async function extractSignatureFromFailedTransaction(
+  connection: Connection,
+  err: any,
+  fetchLogs?: boolean,
+) {
+  if (err?.signature) return err.signature;
+
+  const failedSig = new RegExp(/^((.*)?Error: )?(Transaction|Signature) ([A-Z0-9]{32,}) /gim).exec(
+    err?.message?.toString(),
+  )?.[4];
+
+  if (failedSig) {
+    if (fetchLogs)
+      await connection
+        .getTransaction(failedSig, {
+          maxSupportedTransactionVersion: 0,
+        })
+        .then(tx => {
+          console.log(`\n==== Transaction logs for ${failedSig} ====`);
+          console.log(explorerURL({ txSignature: failedSig }), "");
+          console.log(tx?.meta?.logMessages ?? "No log messages provided by RPC");
+          console.log(`==== END LOGS ====\n`);
+        });
+    else {
+      console.log("\n========================================");
+      console.log(explorerURL({ txSignature: failedSig }));
+      console.log("========================================\n");
+    }
+  }
+
+  return failedSig;
 }
