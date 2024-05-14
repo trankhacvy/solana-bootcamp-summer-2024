@@ -1,0 +1,24 @@
+{
+  "name": "assignment",
+  "version": "1.0.0",
+  "description": "## Requirements - Write code (preferably in JavaScript) to mint both a fungible token (token) and a non-fungible token (NFT). - The tokens should have names, symbols, descriptions, and images. - The token decimals should be set to 6. - The code should mint 100 tokens for yourself and 10 tokens for the address `63EEC9FfGyksm7PkVC6z8uAmqozbQcTzbkWJNsgqjkFs`. - All the above steps must be completed in a single transaction. - The NFT should also have a name, symbol, description, image, and additional traits. - The NFT royalty should be set to 10%. - Please include the signatures of your executed transactions run on devnet in your submission.",
+  "main": "index.js",
+  "scripts": {
+    "start": "clear && ts-node index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@metaplex-foundation/js": "^0.19.3",
+    "@metaplex-foundation/mpl-token-metadata": "^2.11.1",
+    "@project-serum/anchor": "^0.26.0",
+    "@solana/spl-token": "^0.3.7",
+    "@solana/web3.js": "^1.73.3",
+    "dotenv": "^16.0.3"
+  }
+}
