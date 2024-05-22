@@ -33,6 +33,10 @@ export default function NewProfile() {
   const { isPending, mutateAsync } = useMutation({
     mutationKey: ["create-profile", provider.publicKey],
     mutationFn: async (name: string) => {
+
+
+      console.log("fdjsfkkdsk");
+      
       const program = new TodoProgram(provider);
 
       const tx = await program.createProfile(name);

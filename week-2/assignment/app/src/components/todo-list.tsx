@@ -5,7 +5,7 @@ import TodoProgram from "@/lib/todo-program";
 import { Center, Flex, List, Spinner, Text } from "@chakra-ui/react";
 import { IdlAccounts } from "@coral-xyz/anchor";
 import { useQuery } from "@tanstack/react-query";
-import { IDL } from "../../../target/types/todo_app";
+import { IDL } from "../../../target/types/assignment";
 import TodoItem from "./todo-item";
 
 export default function TodoList({

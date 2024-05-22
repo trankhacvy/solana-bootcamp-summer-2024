@@ -36,7 +36,8 @@ export default function Provider({
       <ChakraProvider>
         <ConnectionProvider
           // endpoint={"http://localhost:8899"}
-          endpoint={endpoint}
+          endpoint={"https://api.devnet.solana.com"}
+          // endpoint={endpoint}
         >
           <WalletProvider wallets={wallets} autoConnect>
             <WalletModalProvider>{children}</WalletModalProvider>

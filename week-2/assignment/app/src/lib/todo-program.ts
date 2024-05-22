@@ -1,15 +1,16 @@
 import { AnchorProvider, IdlAccounts, Program, utils } from "@coral-xyz/anchor";
-import { TodoApp, IDL } from "../../../target/types/todo_app";
+import { Assignment } from "../../../target/types/assignment";
 import { Cluster, PublicKey, SystemProgram } from "@solana/web3.js";
 import { getProgramId } from "./helper";
+import { IDL } from "@coral-xyz/anchor/dist/cjs/native/system";
 
 export default class TodoProgram {
-  program: Program<TodoApp>;
+  program: Program<Assignment>;
   provider: AnchorProvider;
 
   constructor(provider: AnchorProvider, cluster: Cluster = "devnet") {
     this.provider = provider;
-    this.program = new Program(IDL, getProgramId(cluster), provider);
+    this.program = new Program(IDL, getProgramId(cluster));
   }
 
   createProfile(name: string) {
@@ -18,6 +19,11 @@ export default class TodoProgram {
       this.program.programId
     );
 
+    console.log(utils.bytes.utf8.encode("profile"), this.provider.publicKey.toBytes());
+    console.log(profile);
+    console.log(this.program.programId);
+    
+    
     const builder = this.program.methods.createProfile(name).accounts({
       creator: this.provider.publicKey,
       profile,
