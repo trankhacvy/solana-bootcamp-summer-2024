@@ -22,8 +22,9 @@ export default function Provider({
 }>) {
   const network = WalletAdapterNetwork.Devnet;
 
-  // const endpoint = useMemo(() => clusterApiUrl(network), [network]);
-  const endpoint = process.env.NEXT_PUBLIC_RPC_URL!;
+  const endpoint = useMemo(() => clusterApiUrl(network), [network]);
+  
+  // const endpoint = process.env.NEXT_PUBLIC_RPC_URL!;
 
   const wallets = useMemo(
     () => [new PhantomWalletAdapter(), new SolflareWalletAdapter()],
@@ -36,8 +37,7 @@ export default function Provider({
       <ChakraProvider>
         <ConnectionProvider
           // endpoint={"http://localhost:8899"}
-          endpoint={"https://api.devnet.solana.com"}
-          // endpoint={endpoint}
+          endpoint={endpoint}
         >
           <WalletProvider wallets={wallets} autoConnect>
             <WalletModalProvider>{children}</WalletModalProvider>

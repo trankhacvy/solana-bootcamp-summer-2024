@@ -13,6 +13,7 @@ import TodoList from "./todo-list";
 export default function UserTodos() {
   const { publicKey } = useWallet();
   const provider = useAnchorProvider();
+console.log(provider);
 
   const { data: profile, isLoading } = useQuery({
     queryKey: ["profile", publicKey?.toBase58()],
@@ -28,6 +29,8 @@ export default function UserTodos() {
       </Center>
     );
   }
+  console.log(profile);
+  
 
   if (!profile) {
     return <NewProfile />;

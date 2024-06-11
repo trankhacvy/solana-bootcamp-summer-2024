@@ -20,7 +20,7 @@ import {
 import { IdlAccounts } from "@coral-xyz/anchor";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
-import { IDL } from "../../../target/types/assignment";
+import { IDL } from "../../../target/types/todo_app";
 
 export default function NewTodo({
   profile,

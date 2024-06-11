@@ -1,3 +1,4 @@
+import * as anchor from "@coral-xyz/anchor";
 import { AnchorProvider } from "@coral-xyz/anchor";
 import {
   AnchorWallet,

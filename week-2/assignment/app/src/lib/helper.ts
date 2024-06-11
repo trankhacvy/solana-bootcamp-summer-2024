@@ -1,12 +1,18 @@
 import { Cluster, PublicKey } from "@solana/web3.js";
-
 export const TODO_PROGRAM_ID = new PublicKey(
-  "Ergn84VsTZf5kZay4aioNy3fqq7DyJTSePQ4xi4bZbT"
+  "2RdU1ZSRtsFvpY19ZP4fX55iojRoUAQfQXKPbCHtzMZ2"
+);
+
+export const TODO_PROGRAM_ID_DEVNET = new PublicKey(
+  "2RdU1ZSRtsFvpY19ZP4fX55iojRoUAQfQXKPbCHtzMZ2"
 );
 
 export function getProgramId(cluster: Cluster) {
+  // console.log(cluster);
+  
   switch (cluster) {
     case "devnet":
+      return TODO_PROGRAM_ID_DEVNET
     case "testnet":
     case "mainnet-beta":
     default:

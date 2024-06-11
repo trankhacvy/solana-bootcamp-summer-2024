@@ -15,11 +15,20 @@ dependencies = [
 
 [[package]]
 name = "ahash"
+<<<<<<< HEAD
 version = "0.8.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e89da841a80418a9b391ebaea17f5c112ffaaa96f621d2c285b5174da76b9011"
 dependencies = [
  "cfg-if",
+=======
+version = "0.8.6"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "91429305e9f0a25f6205c5b8e0d2db09e0708a7a6df0f42212bb56c32c8ac97a"
+dependencies = [
+ "cfg-if",
+ "getrandom 0.2.15",
+>>>>>>> 430d573 (complete week 2)
  "once_cell",
  "version_check",
  "zerocopy",
@@ -412,6 +421,7 @@ dependencies = [
 ]
 
 [[package]]
+<<<<<<< HEAD
 name = "borsh"
 version = "1.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -422,6 +432,8 @@ dependencies = [
 ]
 
 [[package]]
+=======
+>>>>>>> 430d573 (complete week 2)
 name = "borsh-derive"
 version = "0.9.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -429,7 +441,11 @@ checksum = "6441c552f230375d18e3cc377677914d2ca2b0d36e52129fe15450a2dce46775"
 dependencies = [
  "borsh-derive-internal 0.9.3",
  "borsh-schema-derive-internal 0.9.3",
+<<<<<<< HEAD
  "proc-macro-crate 0.1.5",
+=======
+ "proc-macro-crate",
+>>>>>>> 430d573 (complete week 2)
  "proc-macro2",
  "syn 1.0.109",
 ]
@@ -442,12 +458,17 @@ checksum = "0754613691538d51f329cce9af41d7b7ca150bc973056f1156611489475f54f7"
 dependencies = [
  "borsh-derive-internal 0.10.3",
  "borsh-schema-derive-internal 0.10.3",
+<<<<<<< HEAD
  "proc-macro-crate 0.1.5",
+=======
+ "proc-macro-crate",
+>>>>>>> 430d573 (complete week 2)
  "proc-macro2",
  "syn 1.0.109",
 ]
 
 [[package]]
+<<<<<<< HEAD
 name = "borsh-derive"
 version = "1.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -462,6 +483,8 @@ dependencies = [
 ]
 
 [[package]]
+=======
+>>>>>>> 430d573 (complete week 2)
 name = "borsh-derive-internal"
 version = "0.9.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -580,12 +603,15 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd"
 
 [[package]]
+<<<<<<< HEAD
 name = "cfg_aliases"
 version = "0.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "fd16c4719339c4530435d38e511904438d07cce7950afa3718a84ac36c10e89e"
 
 [[package]]
+=======
+>>>>>>> 430d573 (complete week 2)
 name = "console_error_panic_hook"
 version = "0.1.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -723,12 +749,15 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a47c1c47d2f5964e29c61246e81db715514cd532db6b5116a25ea3c03d6780a2"
 
 [[package]]
+<<<<<<< HEAD
 name = "equivalent"
 version = "1.0.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "5443807d6dff69373d433ab9ef5378ad8df50ca6298caf15de6e52e24aaf54d5"
 
 [[package]]
+=======
+>>>>>>> 430d573 (complete week 2)
 name = "feature-probe"
 version = "0.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -786,6 +815,7 @@ version = "0.13.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "43a3c133739dddd0d2990f9a4bdf8eb4b21ef50e4851ca85ab661199821d510e"
 dependencies = [
+<<<<<<< HEAD
  "ahash 0.8.11",
 ]
 
@@ -796,6 +826,12 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e5274423e17b7c9fc20b6e7e208532f9b19825d82dfd615708b70edd83df41f1"
 
 [[package]]
+=======
+ "ahash 0.8.6",
+]
+
+[[package]]
+>>>>>>> 430d573 (complete week 2)
 name = "heck"
 version = "0.3.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -842,6 +878,7 @@ dependencies = [
 ]
 
 [[package]]
+<<<<<<< HEAD
 name = "indexmap"
 version = "2.2.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -852,6 +889,8 @@ dependencies = [
 ]
 
 [[package]]
+=======
+>>>>>>> 430d573 (complete week 2)
 name = "itertools"
 version = "0.10.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -955,6 +994,7 @@ dependencies = [
 
 [[package]]
 name = "light-poseidon"
+<<<<<<< HEAD
 version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "3c9a85a9752c549ceb7578064b4ed891179d20acd85f27318573b64d2d7ee7ee"
@@ -962,6 +1002,14 @@ dependencies = [
  "ark-bn254",
  "ark-ff",
  "num-bigint",
+=======
+version = "0.1.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a5b439809cdfc0d86ecc7317f1724df13dfa665df48991b79e90e689411451f7"
+dependencies = [
+ "ark-bn254",
+ "ark-ff",
+>>>>>>> 430d573 (complete week 2)
  "thiserror",
 ]
 
@@ -982,12 +1030,15 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "90ed8c1e510134f979dbc4f070f87d4313098b704861a105fe34231c70a3901c"
 
 [[package]]
+<<<<<<< HEAD
 name = "memchr"
 version = "2.7.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "6c8640c5d730cb13ebd907d8d04b52f55ac9a2eec55b440c8892f40d56c76c1d"
 
 [[package]]
+=======
+>>>>>>> 430d573 (complete week 2)
 name = "memmap2"
 version = "0.5.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1017,6 +1068,7 @@ dependencies = [
 
 [[package]]
 name = "num-derive"
+<<<<<<< HEAD
 version = "0.4.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ed3955f1a9c7c0c15e092f9c887db08b1fc683305fdf6eb6684f22555355e202"
@@ -1024,6 +1076,15 @@ dependencies = [
  "proc-macro2",
  "quote",
  "syn 2.0.63",
+=======
+version = "0.3.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "876a53fff98e03a936a674b29568b0e605f06b29372c2489ff4de23f1949743d"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn 1.0.109",
+>>>>>>> 430d573 (complete week 2)
 ]
 
 [[package]]
@@ -1110,6 +1171,7 @@ dependencies = [
 ]
 
 [[package]]
+<<<<<<< HEAD
 name = "proc-macro-crate"
 version = "3.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1142,6 +1204,8 @@ dependencies = [
 ]
 
 [[package]]
+=======
+>>>>>>> 430d573 (complete week 2)
 name = "proc-macro2"
 version = "1.0.82"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1399,6 +1463,7 @@ checksum = "3c5e1a9a646d36c3599cd173a41282daf47c44583ad367b8e6837255952e5c67"
 
 [[package]]
 name = "solana-frozen-abi"
+<<<<<<< HEAD
 version = "1.18.12"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "35a0b24cc4d0ebd5fd45d6bd47bed3790f8a75ade67af8ff24a3d719a8bc93bc"
@@ -1406,6 +1471,19 @@ dependencies = [
  "block-buffer 0.10.4",
  "bs58 0.4.0",
  "bv",
+=======
+version = "1.17.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7fdc9268b1abba206e1a8a234473eb5f7f7af660a86e4d468e7e79b3e5667aa9"
+dependencies = [
+ "ahash 0.8.6",
+ "blake3",
+ "block-buffer 0.10.4",
+ "bs58 0.4.0",
+ "bv",
+ "byteorder",
+ "cc",
+>>>>>>> 430d573 (complete week 2)
  "either",
  "generic-array",
  "im",
@@ -1416,6 +1494,10 @@ dependencies = [
  "serde",
  "serde_bytes",
  "serde_derive",
+<<<<<<< HEAD
+=======
+ "serde_json",
+>>>>>>> 430d573 (complete week 2)
  "sha2 0.10.8",
  "solana-frozen-abi-macro",
  "subtle",
@@ -1424,9 +1506,15 @@ dependencies = [
 
 [[package]]
 name = "solana-frozen-abi-macro"
+<<<<<<< HEAD
 version = "1.18.12"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "51600f4066d3663ab2981fd24e77a8c2e65f5d20ea71b550b853ca9ae40eee7f"
+=======
+version = "1.17.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "86118cc8437c60d1a474501f6095df880aaac422ab04523a984015c5b7334428"
+>>>>>>> 430d573 (complete week 2)
 dependencies = [
  "proc-macro2",
  "quote",
@@ -1436,9 +1524,15 @@ dependencies = [
 
 [[package]]
 name = "solana-program"
+<<<<<<< HEAD
 version = "1.18.12"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "2a5513a02d622ba89e76baf4b49d25ae20c2c2c623fced12b0d6dd7b8f23e006"
+=======
+version = "1.17.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "05c940ad70659c2366331fd136d67cc968acadbc1f6ad13cff9ffe7e392aa831"
+>>>>>>> 430d573 (complete week 2)
 dependencies = [
  "ark-bn254",
  "ark-ec",
@@ -1450,7 +1544,10 @@ dependencies = [
  "blake3",
  "borsh 0.10.3",
  "borsh 0.9.3",
+<<<<<<< HEAD
  "borsh 1.5.0",
+=======
+>>>>>>> 430d573 (complete week 2)
  "bs58 0.4.0",
  "bv",
  "bytemuck",
@@ -1491,9 +1588,15 @@ dependencies = [
 
 [[package]]
 name = "solana-sdk-macro"
+<<<<<<< HEAD
 version = "1.18.12"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "5cb099b2f9c0a65a6f23ced791325141cd68c27b04d11c04fef838a00f613861"
+=======
+version = "1.17.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a1da4a7421c09ee4dbf81df06407933d4f68f8990ae87a2feaee6e1b03c97d1d"
+>>>>>>> 430d573 (complete week 2)
 dependencies = [
  "bs58 0.4.0",
  "proc-macro2",
@@ -1531,6 +1634,7 @@ dependencies = [
 ]
 
 [[package]]
+<<<<<<< HEAD
 name = "syn_derive"
 version = "0.1.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1543,6 +1647,8 @@ dependencies = [
 ]
 
 [[package]]
+=======
+>>>>>>> 430d573 (complete week 2)
 name = "thiserror"
 version = "1.0.60"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1600,7 +1706,13 @@ checksum = "1f3ccbac311fea05f86f61904b462b55fb3df8837a366dfc601a0161d0532f20"
 name = "todo-app"
 version = "0.1.0"
 dependencies = [
+<<<<<<< HEAD
  "anchor-lang",
+=======
+ "ahash 0.8.6",
+ "anchor-lang",
+ "solana-program",
+>>>>>>> 430d573 (complete week 2)
 ]
 
 [[package]]
@@ -1613,6 +1725,7 @@ dependencies = [
 ]
 
 [[package]]
+<<<<<<< HEAD
 name = "toml_datetime"
 version = "0.6.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1630,6 +1743,8 @@ dependencies = [
 ]
 
 [[package]]
+=======
+>>>>>>> 430d573 (complete week 2)
 name = "typenum"
 version = "1.17.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1803,6 +1918,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "bec47e5bfd1bff0eeaf6d8b485cc1074891a197ab4225d504cb7a1ab88b02bf0"
 
 [[package]]
+<<<<<<< HEAD
 name = "winnow"
 version = "0.5.40"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1812,6 +1928,8 @@ dependencies = [
 ]
 
 [[package]]
+=======
+>>>>>>> 430d573 (complete week 2)
 name = "zerocopy"
 version = "0.7.34"
 source = "registry+https://github.com/rust-lang/crates.io-index"

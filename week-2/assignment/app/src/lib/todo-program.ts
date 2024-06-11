@@ -1,16 +1,16 @@
-import { AnchorProvider, IdlAccounts, Program, utils } from "@coral-xyz/anchor";
-import { Assignment } from "../../../target/types/assignment";
+import  {Program,AnchorProvider,IdlAccounts,utils} from '@project-serum/anchor';
+import { TodoApp, IDL } from "../../../target/types/todo_app";
 import { Cluster, PublicKey, SystemProgram } from "@solana/web3.js";
-import { getProgramId } from "./helper";
-import { IDL } from "@coral-xyz/anchor/dist/cjs/native/system";
+import { TODO_PROGRAM_ID_DEVNET, getProgramId } from "./helper";
 
 export default class TodoProgram {
-  program: Program<Assignment>;
+  program: any;
   provider: AnchorProvider;
 
   constructor(provider: AnchorProvider, cluster: Cluster = "devnet") {
     this.provider = provider;
-    this.program = new Program(IDL, getProgramId(cluster));
+    // this.program = new Program(IDL, getProgramId(cluster), provider) as Program<TodoApp>;
+    this.program = new Program(IDL, TODO_PROGRAM_ID_DEVNET, provider);
   }
 
   createProfile(name: string) {
@@ -19,11 +19,6 @@ export default class TodoProgram {
       this.program.programId
     );
 
-    console.log(utils.bytes.utf8.encode("profile"), this.provider.publicKey.toBytes());
-    console.log(profile);
-    console.log(this.program.programId);
-    
-    
     const builder = this.program.methods.createProfile(name).accounts({
       creator: this.provider.publicKey,
       profile,
@@ -58,6 +53,46 @@ export default class TodoProgram {
       profile,
       todo,
       systemProgram: SystemProgram.programId,
+    });
+
+    return builder.transaction();
+  }
+
+  toggleTodoStatus(todoIndex: number) {
+    const [profile] = PublicKey.findProgramAddressSync(
+      [Buffer.from("profile"), this.provider.publicKey.toBytes()],
+      this.program.programId
+    );
+
+    const [todo] = PublicKey.findProgramAddressSync(
+      [Buffer.from("todo"), profile.toBytes(), Buffer.from([todoIndex])],
+      this.program.programId
+    );
+
+    const builder = this.program.methods.toggleTodo().accounts({
+      creator: this.provider.publicKey,
+      profile,
+      todo,
+    });
+
+    return builder.transaction();
+  }
+
+  deleteTodo(todoIndex: number) {
+    const [profile] = PublicKey.findProgramAddressSync(
+      [Buffer.from("profile"), this.provider.publicKey.toBytes()],
+      this.program.programId
+    );
+
+    const [todo] = PublicKey.findProgramAddressSync(
+      [Buffer.from("todo"), profile.toBytes(), Buffer.from([todoIndex])],
+      this.program.programId
+    );
+
+    const builder = this.program.methods.deleteTodo().accounts({
+      creator: this.provider.publicKey,
+      profile,
+      todo,
     });
 
     return builder.transaction();
